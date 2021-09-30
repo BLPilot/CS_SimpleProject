@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     }
     bool JumpCheck()
     {
-
+        Debug.Log("checking jump");
         Ray raycast = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
 
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("jump");
             return hit.collider != null;
         }
-        
+        Debug.Log(hit.collider == null);
         return false;
     }
 }

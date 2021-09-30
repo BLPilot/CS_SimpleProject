@@ -34,4 +34,16 @@ public class DynamicPlatform : MonoBehaviour
             NextTarget();
         }
     }
+
+    void OnCollisionEnter(Collision c)
+    {
+        if(c.gameObject.tag == "Player")
+            c.transform.SetParent(transform);
+    }
+
+    void OnCollisionExit(Collision c)
+    {
+        if(c.gameObject.tag == "Player")
+            c.transform.SetParent(null);
+    }
 }
