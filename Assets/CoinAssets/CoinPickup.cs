@@ -18,7 +18,7 @@ public class CoinPickup : MonoBehaviour
 	
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.name == "Player")
+		if(other.tag == "Player")
 		{
 			//add point
 			Destroy(gameObject);
