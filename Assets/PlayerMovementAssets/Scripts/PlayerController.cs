@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = transform.right * horizontal + transform.forward * vertical;
+        direction.Normalize();
         direction *= (Sprint) ? Speed * SprintMod * Time.deltaTime * 100: Speed * Time.deltaTime * 100;
         direction.y = rb.velocity.y;
 
