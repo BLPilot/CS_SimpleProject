@@ -17,4 +17,9 @@ public class HealthBarScript : MonoBehaviour
     {
         slider.value = health;
     }
+
+    public void SetOff()
+    {
+        gameObject.SetActive(false);
+    }
 }
