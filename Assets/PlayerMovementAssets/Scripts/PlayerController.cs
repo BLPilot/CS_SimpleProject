@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 
     float groundDistance = 1.0f;
 
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
+
     // Update is called once per frame
     void Update()
     {
@@ -27,10 +30,12 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = transform.right * horizontal + transform.forward * vertical;
-        direction *= (Sprint) ? Speed * SprintMod : Speed;
+        direction.Normalize();
+        direction *= (Sprint) ? Speed * SprintMod * Time.deltaTime * 100: Speed * Time.deltaTime * 100;
         direction.y = rb.velocity.y;
 
         rb.velocity = direction;
+        //rb.MovePosition(direction);
         //Vector3 movementVector = new Vector3(horizontal, 0f, vertical) * Speed * SprintMod * Time.deltaTime;
         //if (movementVector.magnitude <= 0.1f) { rb.velocity = movementVector; }
     }
@@ -52,7 +57,8 @@ public class PlayerController : MonoBehaviour
     {
         if (JumpCheck() ) 
         {
-            rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.z);
+            //rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
         }
     }
     bool JumpCheck()
@@ -60,10 +66,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("checking jump");
         Ray raycast = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
-
         if (Physics.Raycast(raycast, out hit, groundDistance))
         {
-            Debug.Log("jump");
             return hit.collider != null;
         }
         Debug.Log(hit.collider == null);
