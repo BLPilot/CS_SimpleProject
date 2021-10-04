@@ -50,6 +50,7 @@ MonoBehaviour:
   Speed: 16
   SprintMod: 2
   JumpForce: 5
+  turnSmoothTime: 0.1
 --- !u!54 &1146369249993362852
 Rigidbody:
   m_ObjectHideFlags: 0
