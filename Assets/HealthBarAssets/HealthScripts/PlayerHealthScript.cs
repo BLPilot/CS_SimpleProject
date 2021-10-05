@@ -49,11 +49,6 @@ public class PlayerHealthScript : MonoBehaviour
             GameOverScreen.Setup();
             healthBar.SetOff();
         }
-
-        if (Input.GetKeyDown("space"))
-        {
-            TakeDamage(20);
-        }
     }
 
     void TakeDamage(int damage)

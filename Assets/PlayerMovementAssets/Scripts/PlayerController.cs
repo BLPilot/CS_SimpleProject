@@ -63,14 +63,12 @@ public class PlayerController : MonoBehaviour
     }
     bool JumpCheck()
     {
-        Debug.Log("checking jump");
         Ray raycast = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
         if (Physics.Raycast(raycast, out hit, groundDistance))
         {
             return hit.collider != null;
         }
-        Debug.Log(hit.collider == null);
         return false;
     }
 }

@@ -19,7 +19,6 @@ public class DynamicPlatform : MonoBehaviour
     void NextTarget()
     {
         target = (target < targets.Count - 1) ? target + 1 : 0;
-        Debug.Log("target: " + target);
         diff = (transform.localPosition - targets[target].localPosition).magnitude;
         direction = (targets[target].localPosition - transform.localPosition).normalized;
     }
@@ -27,7 +26,6 @@ public class DynamicPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(targets.Count);
         transform.localPosition += direction * Time.deltaTime * speed;
         if((transform.localPosition - targets[target].localPosition).magnitude < 0.1f)
         {

@@ -16,11 +16,10 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> levelPrefabs;
     public GameObject playerPrefab;
 
-    private Level level;
+    private GameObject level;
 
     public void Start()
     {
-        level = GameObject.Instantiate(levelPrefabs[LevelConfig.levelIndex]).GetComponent<Level>();
-        level.LoadLevel();
+        level = GameObject.Instantiate(levelPrefabs[LevelConfig.levelIndex]);
     }
 }
