@@ -11,5 +11,11 @@ public class Distance : MonoBehaviour
     {
         Debug.Log(player.position.z);
 		distanceText.text = player.position.z.ToString("0");
+		
     }
+	
+	private void OnGUI()
+	{
+		GUI.Label(new Rect(10,10,100,100), "Distance: " + player.position.z.ToString("0"));
+	}
 }
