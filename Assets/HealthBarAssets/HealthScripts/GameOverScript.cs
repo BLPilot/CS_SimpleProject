@@ -7,7 +7,7 @@ public class GameOverScript : MonoBehaviour
 {
    public void Setup()
     {
-        LevelConfig.levelIndex = 2;
-        SceneManager.LoadScene("GameOver");
+        LevelConfig.levelIndex = 0;
+        SceneManager.LoadScene("MainMenu");
     }
 }
