@@ -1,7 +1,0 @@
-TO CREATE A NEW LEVEL
-
-- First build the level, keeping all gameobjects under a single gameobject with a 'Level' script attached.
-- Every new level needs an empty gameobject called 'PlayerStart' to indicate where the player will start.
-- Once finished, save the root object as a prefab.
-- Add the new prefab to the list of level prefabs in the LevelManager.
-- The level can now be loaded by index
