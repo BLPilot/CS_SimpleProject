@@ -48,6 +48,8 @@ public class PlayerHealthScript : MonoBehaviour
         {
             GameOverScreen.Setup();
             healthBar.SetOff();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
