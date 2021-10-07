@@ -22,16 +22,7 @@ public class CoinPickup : MonoBehaviour
 	{
 		if(other.tag == "Player")
 		{
-			points++;
-
 			Destroy(gameObject);
 		}
 	}
-	
-	/*
-	private void OnGUI()
-	{
-		GUI.Label(new Rect(10,10,100,100), "Score: " + points);
-	}
-	*/
 }
