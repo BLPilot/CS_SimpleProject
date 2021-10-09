@@ -24,8 +24,8 @@ public class CameraController : MonoBehaviour
 
     void CameraControl()
     {
-        mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
-        mouseY += Input.GetAxis("Mouse Y") * rotationSpeed;
+        mouseX += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+        mouseY += Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
         // clamp Y rotation
         mouseY = Mathf.Clamp(mouseY, -35f, 60f);
 
