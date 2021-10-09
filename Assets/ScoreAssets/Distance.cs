@@ -9,7 +9,6 @@ public class Distance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(player.position.z);
 		player.position.z.ToString("0");
 		
     }

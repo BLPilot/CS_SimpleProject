@@ -52,6 +52,7 @@ MonoBehaviour:
   Speed: 12
   SprintMod: 1.75
   JumpForce: 5
+  groundDistance: 1.25
   turnSmoothTime: 0.1
 --- !u!54 &1146369249993362852
 Rigidbody:

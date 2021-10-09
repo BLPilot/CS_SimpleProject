@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float JumpForce = 10f;
     bool Sprint = false;
 
-    float groundDistance = 1.0f;
+    public float groundDistance = 10.0f;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
 
         Vector3 direction = transform.right * horizontal + transform.forward * vertical;
         direction.Normalize();
-        direction *= (Sprint) ? Speed * SprintMod * Time.deltaTime * 100: Speed * Time.deltaTime * 100;
+        // direction *= (Sprint) ? Speed * SprintMod * Time.deltaTime * 100: Speed * Time.deltaTime * 100;
+        direction *= (Sprint) ? Speed * SprintMod: Speed;
         direction.y = rb.velocity.y;
 
         rb.velocity = direction;
@@ -55,9 +56,11 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        Debug.Log("Jump");
         if (JumpCheck() ) 
         {
             rb.velocity = new Vector3(rb.velocity.x, JumpForce, rb.velocity.z);
+            Debug.Log("Check");
             //rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
         }
     }
